@@ -138,16 +138,9 @@
     
     
     
-
-
-
-
-
-
-
 <h1>
   Reducing Python String Memory Use in Apache Arrow 0.12
-  <a href="../../../../../blog/2019/02/05/python-string-memory-0.12/" class="permalink" title="Permalink">∞</a>
+  <a href="/blog/2019/02/05/python-string-memory-0.12/" class="permalink" title="Permalink">∞</a>
 </h1>
 
 
@@ -229,7 +222,7 @@ overhead. 32-bit integer offsets encodes the position and size of a string
 value in a contiguous chunk of memory:</p>
 
 <div align="center">
-<img src="/img/20190205-arrow-string.png" alt="Apache Arrow string memory layout" width="80%" class="img-responsive" />
+<img src="../../../../../img/20190205-arrow-string.png" alt="Apache Arrow string memory layout" width="80%" class="img-responsive" />
 </div>
 
 <p>When you call <code class="highlighter-rouge">table.to_pandas()</code> or <code class="highlighter-rouge">array.to_pandas()</code> with <code class="highlighter-rouge">pyarrow</code>, we
@@ -257,7 +250,7 @@ and incrementing their reference counts.</p>
 <p>Schematically, we have the following:</p>
 
 <div align="center">
-<img src="/img/20190205-numpy-string.png" alt="pandas string memory optimization" width="80%" class="img-responsive" />
+<img src="../../../../../img/20190205-numpy-string.png" alt="pandas string memory optimization" width="80%" class="img-responsive" />
 </div>
 
 <p>In <code class="highlighter-rouge">pyarrow</code> 0.12, we have implemented this when calling <code class="highlighter-rouge">to_pandas</code>. It
