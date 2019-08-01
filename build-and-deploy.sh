@@ -7,6 +7,7 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ] && [ "${TRAVIS_BRANCH}" = "master" ]; 
     git config --global user.email "${AUTHOR_EMAIL}"
     git config --global user.name "${AUTHOR_NAME}"
 
+    export STAGING_URL="https://"$(echo $TRAVIS_REPO_SLUG | sed 's@/@.github.io/@')
     if [ ! -z "${STAGING_URL}" ]; then
         perl -pe 's@^baseurl.*@baseurl: '"${STAGING_URL}"'@' -i _config.yml
         export TARGET_BRANCH=gh-pages
