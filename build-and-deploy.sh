@@ -1,13 +1,15 @@
 #!/bin/bash
 set -ev
 
-if [ -z "${GITHUB_PAT}" ]; then
-    # Don't build because we can't publish
-    echo "To publish the site, you must set a GITHUB_PAT in the Travis repository settings"
-    exit 1
-fi
-
 if [ "${TRAVIS_BRANCH}" = "master" ] && [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
+
+    if [ -z "${GITHUB_PAT}" ]; then
+        # Don't build because we can't publish
+        echo "To publish the site, you must set a GITHUB_PAT at"
+        echo "https://travis-ci.org/"${TRAVIS_REPO_SLUG}"/settings"
+        exit 1
+    fi
+
     # Set git config so that the author of the deployed site commit is the same
     # as the author of the commit we're building
     export AUTHOR_EMAIL=$(git log -1 --pretty=format:%ae)
