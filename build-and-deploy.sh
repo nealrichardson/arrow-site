@@ -7,7 +7,7 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ] && [ "${TRAVIS_BRANCH}" = "master" ]; 
     git config --global user.email "${AUTHOR_EMAIL}"
     git config --global user.name "${AUTHOR_NAME}"
     printenv
-    
+
     if [[ -z "${STAGING_URL}" ]]; then
         perl -pe 's@^baseurl.*@baseurl: '"${STAGING_URL}"'@' -i _config.yml
         export TARGET_BRANCH=gh-pages
@@ -28,6 +28,7 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ] && [ "${TRAVIS_BRANCH}" = "master" ]; 
     git clone -b ${TARGET_BRANCH} https://${GITHUB_PAT}@github.com/$TRAVIS_REPO_SLUG.git asf-site
     rsync -r build/ asf-site/
     cd asf-site
+
 
     git add .
     git commit -m "Updating built site (build ${TRAVIS_BUILD_NUMBER})" || true
