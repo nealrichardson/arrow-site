@@ -47,7 +47,7 @@ sass:
   style: compressed
 
 # The base path where the website is deployed
-baseurl: https://arrow.apache.org
+baseurl: 
 
 plugins:
   - jekyll-assets

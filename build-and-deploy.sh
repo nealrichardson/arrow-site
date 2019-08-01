@@ -13,6 +13,7 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ] && [ "${TRAVIS_BRANCH}" = "master" ]; 
     elif [ "${TRAVIS_REPO_SLUG}" = "apache/arrow-site" ]; then
         # Production
         export TARGET_BRANCH=asf-site
+        perl -pe 's@^baseurl.*@baseurl: https://arrow.apache.org@' -i _config.yml
     else
         echo "You must set a STAGING_URL environment variable in the Travis repository settings"
         exit 1
