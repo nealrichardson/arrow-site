@@ -1,7 +1,13 @@
 #!/bin/bash
 set -ev
 
-if [ "${TRAVIS_PULL_REQUEST}" = "false" ] && [ "${TRAVIS_BRANCH}" = "master" ]; then
+if [ -z "${GITHUB_PAT}" ]; then
+    # Don't build because we can't publish
+    echo "To publish the site, you must set a GITHUB_PAT in the Travis repository settings"
+    exit 1
+fi
+
+if [ "${TRAVIS_BRANCH}" = "master" ] && [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
     # Set git config so that the author of the deployed site commit is the same
     # as the author of the commit we're building
     export AUTHOR_EMAIL=$(git log -1 --pretty=format:%ae)
@@ -25,11 +31,6 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ] && [ "${TRAVIS_BRANCH}" = "master" ]; 
     # Set the site.baseurl
     perl -pe 's@^baseurl.*@baseurl: '"${BASE_URL}"'@' -i _config.yml
 
-    if [ -z "${GITHUB_PAT}" ]; then
-        echo "To publish the site, you must set a GITHUB_PAT in the Travis repository settings"
-        exit 1
-    fi
-
     # Build
     gem install jekyll bundler
     bundle install
@@ -41,6 +42,8 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ] && [ "${TRAVIS_BRANCH}" = "master" ]; 
     cd OUTPUT
 
     git add .
+    # Use `|| true` after these commands so that the build doesn't fail if
+    # there are no changes to the published site (e.g. when editing the README)
     git commit -m "Updating built site (build ${TRAVIS_BUILD_NUMBER})" || true
     git push origin ${TARGET_BRANCH} || true
 fi
