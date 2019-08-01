@@ -1,5 +1,6 @@
 #!/bin/bash
 set -ev
+set -x
 
 if [ "${TRAVIS_PULL_REQUEST}" = "false" ] && [ "${TRAVIS_BRANCH}" = "master" ]; then
     export AUTHOR_EMAIL=$(git log -1 --pretty=format:%ae)
@@ -12,7 +13,6 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ] && [ "${TRAVIS_BRANCH}" = "master" ]; 
         perl -pe 's@^baseurl.*@baseurl: '"${STAGING_URL}"'@' -i _config.yml
         export TARGET_BRANCH=gh-pages
     elif [ "${TRAVIS_REPO_SLUG}" = "apache/arrow-site" ]; then
-        echo "${TRAVIS_REPO_SLUG}"
         # Production
         export TARGET_BRANCH=asf-site
     else
@@ -26,9 +26,9 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ] && [ "${TRAVIS_BRANCH}" = "master" ]; 
     JEKYLL_ENV=production bundle exec jekyll build
 
     # Publish
-    git clone -b ${TARGET_BRANCH} https://${GITHUB_PAT}@github.com/$TRAVIS_REPO_SLUG.git asf-site
-    rsync -r build/ asf-site/
-    cd asf-site
+    git clone -b ${TARGET_BRANCH} https://${GITHUB_PAT}@github.com/$TRAVIS_REPO_SLUG.git OUTPUT
+    rsync -r build/ OUTPUT/
+    cd OUTPUT
 
 
     git add .
