@@ -39,9 +39,15 @@ if [ "${TRAVIS_BRANCH}" = "master" ] && [ "${TRAVIS_PULL_REQUEST}" = "false" ]; 
     JEKYLL_ENV=production bundle exec jekyll build
 
     # Publish
-    git clone -b ${TARGET_BRANCH} https://${GITHUB_PAT}@github.com/$TRAVIS_REPO_SLUG.git OUTPUT
-    rsync -r build/ OUTPUT/
+    git clone -b ${TARGET_BRANCH} https://${GITHUB_PAT}@github.com/${TRAVIS_REPO_SLUG}.git OUTPUT
     cd OUTPUT
+    if [ "${TRAVIS_REPO_SLUG}" != "apache/arrow-site" ]; then
+        # Pull upstream changes to the published site into our gh-pages branch
+        git remote add upstream https://github.com/apache/arrow-site
+        git fetch upstream
+        git reset --hard upstream/asf-site
+    fi
+    rsync -r ../build/ ./
 
     git add .
     # Use `|| true` after these commands so that the build doesn't fail if
