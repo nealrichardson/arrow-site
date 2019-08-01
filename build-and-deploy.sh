@@ -1,13 +1,11 @@
 #!/bin/bash
 set -ev
-set -x
 
 if [ "${TRAVIS_PULL_REQUEST}" = "false" ] && [ "${TRAVIS_BRANCH}" = "master" ]; then
     export AUTHOR_EMAIL=$(git log -1 --pretty=format:%ae)
     export AUTHOR_NAME=$(git log -1 --pretty=format:%an)
     git config --global user.email "${AUTHOR_EMAIL}"
     git config --global user.name "${AUTHOR_NAME}"
-    printenv
 
     if [ ! -z "${STAGING_URL}" ]; then
         perl -pe 's@^baseurl.*@baseurl: '"${STAGING_URL}"'@' -i _config.yml
@@ -16,7 +14,12 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ] && [ "${TRAVIS_BRANCH}" = "master" ]; 
         # Production
         export TARGET_BRANCH=asf-site
     else
-        echo "You must set a TARGET_BRANCH environment variable in the Travis repository settings"
+        echo "You must set a STAGING_URL environment variable in the Travis repository settings"
+        exit 1
+    fi
+
+    if [ ! -z "${GITHUB_PAT}" ]; then
+        echo "You must set a GITHUB_PAT in the Travis repository settings"
         exit 1
     fi
 
