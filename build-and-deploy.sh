@@ -9,7 +9,7 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ] && [ "${TRAVIS_BRANCH}" = "master" ]; 
     git config --global user.name "${AUTHOR_NAME}"
     printenv
 
-    if [ -z "${STAGING_URL}" ]; then
+    if [ ! -z "${STAGING_URL}" ]; then
         perl -pe 's@^baseurl.*@baseurl: '"${STAGING_URL}"'@' -i _config.yml
         export TARGET_BRANCH=gh-pages
     elif [ "${TRAVIS_REPO_SLUG}" = "apache/arrow-site" ]; then
