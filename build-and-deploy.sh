@@ -11,7 +11,7 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ] && [ "${TRAVIS_BRANCH}" = "master" ]; 
     if [[ -z "${STAGING_URL}" ]]; then
         perl -pe 's@^baseurl.*@baseurl: '"${STAGING_URL}"'@' -i _config.yml
         export TARGET_BRANCH=gh-pages
-    else if [ "${TRAVIS_REPO_SLUG}" = "apache/arrow" ]; then
+    elif [ "${TRAVIS_REPO_SLUG}" = "apache/arrow" ]; then
         # Production
         export TARGET_BRANCH=asf-site
     else
