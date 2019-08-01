@@ -18,7 +18,7 @@ if [ "${TRAVIS_PULL_REQUEST}" = "false" ] && [ "${TRAVIS_BRANCH}" = "master" ]; 
         exit 1
     fi
 
-    if [ ! -z "${GITHUB_PAT}" ]; then
+    if [ -z "${GITHUB_PAT}" ]; then
         echo "You must set a GITHUB_PAT in the Travis repository settings"
         exit 1
     fi
