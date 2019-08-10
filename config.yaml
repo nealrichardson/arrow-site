@@ -13,43 +13,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-markdown: kramdown
-permalink: /blog/:year/:month/:day/:title/
+baseURL:
+languageCode: en-us
+title: Apache Arrow
+theme: hugo-theme-bootstrap4-blog
+
 repository: https://github.com/apache/arrow
-destination: build
-excerpt_separator: ""
-timezone: America/New_York
+copyright: <p>Apache Arrow, Arrow, Apache, the Apache feather logo, and the Apache Arrow project logo are either registered trademarks or trademarks of The Apache Software Foundation in the United States and other countries.</p> <p>&copy; 2016-2019 The Apache Software Foundation</p>
 
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
+params:
+  header_visible: false
 
-include:
-  - _static
+permalinks:
+  # TODO: make this match the old links, or provide aliases
+  blog: /:year/:month/:day/:title/
 
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - ruby
-  - asf-site
-  - scripts
-  - README.md
-  - vendor
-  - build-and-deploy.sh
-
-collections:
-  docs:
-    output: true
-  release:
-    output: true
-
-sass:
-  style: compressed
-
-# The base path where the website is deployed
-baseurl:
-
-plugins:
-  - jekyll-assets
-  - jekyll-feed
-  - jekyll-jupyter-notebook
+blackfriday:
+  smartypants: false # So that (C) doesn't turn into ©

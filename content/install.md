@@ -20,17 +20,17 @@ limitations under the License.
 {% endcomment %}
 -->
 
-## Current Version: {{site.data.versions['current'].number}}
+## Current Version: {{< current_version number >}}
 
-### Released: {{site.data.versions['current'].date}}
+### Released: {{< current_version date >}}
 
 See the [release notes][10] for more about what's new.
 
 ### Source Release
 
-* **Source Release**: [{{site.data.versions['current'].tarball_name}}][6]
+* **Source Release**: [{{< current_version tarball_name >}}][6]
 * **Verification**: [asc signature][13], [sha256 checksum][14], [sha512 checksum][15], ([verification instructions][12])
-* [Git tag {{site.data.versions['current'].git-tag}}][2]
+* [Git tag {{< current_version git-tag >}}][2]
 * [GPG keys for release signatures][11]
 
 ### Java Packages
@@ -42,10 +42,10 @@ See the [release notes][10] for more about what's new.
 We have provided official binary wheels on PyPI for Linux, macOS, and Windows:
 
 ```shell
-pip install pyarrow=={{site.data.versions['current'].pinned_number}}
+pip install pyarrow=={{< current_version pinned_number >}}
 ```
 
-We recommend pinning `{{site.data.versions['current'].pinned_number}}`
+We recommend pinning `{{< current_version pinned_number >}}`
 in `requirements.txt` to install the latest patch release.
 
 These include the Apache Arrow and Apache Parquet C++ binary libraries bundled
@@ -66,8 +66,8 @@ platforms:
 Install them with:
 
 ```shell
-conda install arrow-cpp={{site.data.versions['current'].pinned_number}} -c conda-forge
-conda install pyarrow={{site.data.versions['current'].pinned_number}} -c conda-forge
+conda install arrow-cpp={{< current_version pinned_number >}} -c conda-forge
+conda install pyarrow={{< current_version pinned_number >}} -c conda-forge
 ```
 
 ### C++ and GLib (C) Packages on Homebrew
@@ -234,16 +234,15 @@ pacman -S --noconfirm mingw-w64-x86_64-arrow
 pacman -S --noconfirm mingw-w64-i686-arrow
 ```
 
-[1]: {{site.data.versions['current'].mirrors}}
-[2]: {{site.data.versions['current'].github-tag-link}}
-[4]: {{site.data.versions['current'].java-artifacts}}
+[2]: {{< current_version github-tag-link >}}
+[4]: {{< current_version java-artifacts >}}
 [5]: https://conda-forge.github.io
-[6]: {{site.data.versions['current'].mirrors-tar}}
-[10]: {{site.data.versions['current'].release-notes}}
+[6]: {{< current_version mirrors-tar >}}
+[10]: {{< current_version release-notes >}}
 [11]: https://www.apache.org/dist/arrow/KEYS
 [12]: https://www.apache.org/dyn/closer.cgi#verify
-[13]: {{site.data.versions['current'].asc}}
-[14]: {{site.data.versions['current'].sha256}}
-[15]: {{site.data.versions['current'].sha512}}
+[13]: {{< current_version asc >}}
+[14]: {{< current_version sha256 >}}
+[15]: {{< current_version sha512 >}}
 [16]: https://github.com/msys2/MINGW-packages/tree/master/mingw-w64-arrow
 [17]: https://brew.sh/

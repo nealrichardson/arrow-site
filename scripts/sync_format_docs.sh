@@ -20,5 +20,5 @@
 
 set -ex
 
-rm -rf _docs/format
-cp -r $(dirname "$BASH_SOURCE")/../../format _docs/format
+rm -rf content/docs/format
+cp -r $(dirname "$BASH_SOURCE")/../../format content/docs/format
