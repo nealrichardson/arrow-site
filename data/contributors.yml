@@ -14,39 +14,40 @@
 # limitations under the License.
 #
 # Database of contributors to Apache Arrow (WIP)
+# Entries are keyed by apache ID (which may not actually exist for everyone)
 # Blogs and other pages use this data
 #
-- name: Wes McKinney
-  apacheId: wesm
+wesm:
+  name: Wes McKinney
   githubId: wesm
   homepage: https://wesmckinney.com
   role: PMC
-- name: Uwe Korn
-  apacheId: uwe
+uwe:
+  name: Uwe Korn
   githubId: xhochy
   role: PMC
-- name: Jacques Nadeau
-  apacheId: jacques
+jacques:
+  name: Jacques Nadeau
   githubId: jacques-n
   role: PMC
-- name: Julien Le Dem
-  apacheId: julienledem
+julienledem:
+  name: Julien Le Dem
   githubId: julienledem
   role: PMC
-- name: Michael König
-  apacheId: MathMagique
+MathMagique:
+  name: Michael König
   githubId: MathMagique
-- name: Siddharth Teotia
-  apacheId: siddharthteotia
+siddharthteotia:
+  name: Siddharth Teotia
   githubId: siddharthteotia
-- name: The Apache Arrow PMC
-  apacheId: pmc # Not a real apacheId
+pmc:
+  name: The Apache Arrow PMC
   homepage: https://arrow.apache.org
-- name: Andy Grove
-  apacheId: agrove
+agrove:
+  name: Andy Grove
   githubId: andygrove
   role: PMC
-- name: Neal Richardson
-  apacheId: npr # Not a real apacheId
+npr:
+  name: Neal Richardson
   githubId: nealrichardson
 # End contributors.yml

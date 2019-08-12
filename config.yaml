@@ -23,6 +23,7 @@ copyright: <p>Apache Arrow, Arrow, Apache, the Apache feather logo, and the Apac
 
 params:
   header_visible: false
+  date_format: "2 Jan 2006"
 
 permalinks:
   # TODO: make this match the old links, or provide aliases

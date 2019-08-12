@@ -1,0 +1,8 @@
+{{ $author := .Params.author | default .Site.Params.author }}
+{{ $author_record := index $.Site.Data.contributors $author }}
+
+{{ if $author_record }}
+<a href="{{ if $author_record.homepage }}{{ $author_record.homepage }}{{ else if $author_record.githubId }}http://github.com/{{ $author_record.githubId }}{{ else }}http://people.apache.org/~{{ $author }}{{ end }}">{{ $author_record.name }} ({{ $author }}) </a>
+{{ else }}
+{{ $author }}
+{{ end }}
