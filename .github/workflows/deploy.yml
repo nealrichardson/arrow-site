@@ -36,14 +36,14 @@ jobs:
       - name: Configure for production
         run: |
           echo "BASE_URL=" >> ../env.sh
-          echo "ORIGIN=$(jq .repository.full_name ${GITHUB_EVENT_PATH})" >> ../env.sh
+          echo "ORIGIN=$(jq --raw-output .repository.full_name ${GITHUB_EVENT_PATH})" >> ../env.sh
           echo "TARGET_BRANCH=asf-site" >> ../env.sh
           echo >> _extra_config.yml
         if: github.event_name == 'push'
       - name: Configure for GitHub Pages
         run: |
-          owner=$(jq .pull_request.head.user.login ${GITHUB_EVENT_PATH})
-          repository=$(jq .pull_request.head.repo.name ${GITHUB_EVENT_PATH})
+          owner=$(jq --raw-output .pull_request.head.user.login ${GITHUB_EVENT_PATH})
+          repository=$(jq --raw-output .pull_request.head.repo.name ${GITHUB_EVENT_PATH})
           echo "BASE_URL=/${repository}" >> ../env.sh
           echo "ORIGIN=${owner}/${repository}" >> ../env.sh
           echo "TARGET_BRANCH=gh-pages" >> ../env.sh
