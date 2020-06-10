@@ -32,7 +32,7 @@ All participation in the Apache Arrow project is governed by the Apache Software
 
 ### Mailing lists
 
-These arrow.apache.org mailing lists are the official fora for project discussion:
+These arrow.apache.org mailing lists are for project discussion:
 
 <ul>
   <li> <code>user@</code> is for questions on using Apache Arrow libraries {% include mailing_list_links.html list="user" %} </li>
@@ -41,7 +41,7 @@ These arrow.apache.org mailing lists are the official fora for project discussio
 
 When emailing one of the lists, you may want to prefix the subject line with one or more tags, like `[C++] why did this segfault?`, `[Python] trouble with wheels`, etc., so that the appropriate people in the community notice the message.
 
-In addition, there are other lists that log several streams of activity:
+In addition, these lists log several activity streams:
 
 <ul>
   <li> <code>issues@</code> for JIRA activity {% include mailing_list_links.html list="issues" %} </li>
@@ -63,4 +63,4 @@ If you know your question is actually a bug report or feature request, we encour
 
 ## Contributing
 
-As mentioned above, we use [JIRA](https://issues.apache.org/jira/browse/ARROW) for our issue tracker and GitHub for source control. See the [contribution guidelines](https://arrow.apache.org/docs/developers/contributing.html) for more.
+As mentioned above, we use [JIRA](https://issues.apache.org/jira/browse/ARROW) for our issue tracker and GitHub for source control. See the [contribution guidelines]({{ site.baseurl }}/docs/developers/contributing.html) for more.
