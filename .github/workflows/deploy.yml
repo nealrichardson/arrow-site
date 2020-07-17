@@ -92,6 +92,10 @@ jobs:
             --exclude '/docs/' \
             ../build/ \
             ./
+          rsync \
+            -a \
+            ../build/docs/ \
+            docs/
           if [ "$(git status --porcelain)" != "" ]; then
             # There are changes to the built site
             git add --all
