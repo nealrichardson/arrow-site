@@ -6,29 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above meta tags *must* come first in the head; any other head content must come *after* these tags -->
     
-    <title>Improvements to Java Vector API in Apache Arrow 0.8.0 | Apache Arrow</title>
+    <title>Apache Arrow GLib (C) | Apache Arrow</title>
     
 
     <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v3.8.4" />
-<meta property="og:title" content="Improvements to Java Vector API in Apache Arrow 0.8.0" />
-<meta name="author" content="Siddharth Teotia" />
+<meta property="og:title" content="Apache Arrow GLib (C)" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="This post describes the recent improvements in Java Vector code" />
-<meta property="og:description" content="This post describes the recent improvements in Java Vector code" />
-<link rel="canonical" href="https://nealrichardson.github.io/arrow-site/arrow-site/blog/2017/12/18/java-vector-improvements/" />
-<meta property="og:url" content="https://nealrichardson.github.io/arrow-site/arrow-site/blog/2017/12/18/java-vector-improvements/" />
+<meta name="description" content="Apache Arrow GLib (C) Apache Arrow GLib is a wrapper library for Apache Arrow C++. Apache Arrow GLib provides C API. Apache Arrow GLib supports GObject Introspection. It means that you can create language bindings at runtime or compile time automatically. API reference manuals Apache Arrow GLib Apache Parquet GLib Gandiva GLib Plasma GLib" />
+<meta property="og:description" content="Apache Arrow GLib (C) Apache Arrow GLib is a wrapper library for Apache Arrow C++. Apache Arrow GLib provides C API. Apache Arrow GLib supports GObject Introspection. It means that you can create language bindings at runtime or compile time automatically. API reference manuals Apache Arrow GLib Apache Parquet GLib Gandiva GLib Plasma GLib" />
+<link rel="canonical" href="https://nealrichardson.github.io/arrow-site/arrow-site/docs/c_glib/" />
+<meta property="og:url" content="https://nealrichardson.github.io/arrow-site/arrow-site/docs/c_glib/" />
 <meta property="og:site_name" content="Apache Arrow" />
 <meta property="og:image" content="https://nealrichardson.github.io/arrow-site/arrow-site/img/arrow.png" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2017-12-18T19:00:00-05:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:image" content="https://nealrichardson.github.io/arrow-site/arrow-site/img/arrow.png" />
-<meta property="twitter:title" content="Improvements to Java Vector API in Apache Arrow 0.8.0" />
+<meta property="twitter:title" content="Apache Arrow GLib (C)" />
 <meta name="twitter:site" content="@ApacheArrow" />
-<meta name="twitter:creator" content="@Siddharth Teotia" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"Siddharth Teotia"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://nealrichardson.github.io/arrow-site/arrow-site/img/logo.png"},"name":"Siddharth Teotia"},"datePublished":"2017-12-18T19:00:00-05:00","description":"This post describes the recent improvements in Java Vector code","mainEntityOfPage":{"@type":"WebPage","@id":"https://nealrichardson.github.io/arrow-site/arrow-site/blog/2017/12/18/java-vector-improvements/"},"url":"https://nealrichardson.github.io/arrow-site/arrow-site/blog/2017/12/18/java-vector-improvements/","image":"https://nealrichardson.github.io/arrow-site/arrow-site/img/arrow.png","@type":"BlogPosting","headline":"Improvements to Java Vector API in Apache Arrow 0.8.0","dateModified":"2017-12-18T19:00:00-05:00","@context":"https://schema.org"}</script>
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://nealrichardson.github.io/arrow-site/arrow-site/img/logo.png"}},"description":"Apache Arrow GLib (C) Apache Arrow GLib is a wrapper library for Apache Arrow C++. Apache Arrow GLib provides C API. Apache Arrow GLib supports GObject Introspection. It means that you can create language bindings at runtime or compile time automatically. API reference manuals Apache Arrow GLib Apache Parquet GLib Gandiva GLib Plasma GLib","url":"https://nealrichardson.github.io/arrow-site/arrow-site/docs/c_glib/","image":"https://nealrichardson.github.io/arrow-site/arrow-site/img/arrow.png","@type":"WebPage","headline":"Apache Arrow GLib (C)","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -208,117 +204,28 @@
   </header>
 
   <div class="container p-4 pt-5">
-    <div class="col-md-8 mx-auto">
-      <main role="main" class="pb-5">
-        
-<h1>
-  Improvements to Java Vector API in Apache Arrow 0.8.0
-</h1>
-<hr class="mt-4 mb-3">
-
-
-
-<p class="mb-4 pb-1">
-  <span class="badge badge-secondary">Published</span>
-  <span class="published mr-3">
-    18 Dec 2017
-  </span>
-  <br />
-  <span class="badge badge-secondary">By</span>
-  
-    Siddharth Teotia
-  
-
-  
-</p>
-
-
-        <!--
+    <main role="main" class="pb-5">
+      <!--
 
 -->
 
-<p>This post gives insight into the major improvements in the Java implementation
-of vectors. We undertook this work over the last 10 weeks since the last Arrow
-release.</p>
+<h1 id="apache-arrow-glib-c">Apache Arrow GLib (C)</h1>
 
-<h2 id="design-goals">Design Goals</h2>
+<p>Apache Arrow GLib is a wrapper library for Apache Arrow C++. Apache Arrow GLib provides C API.</p>
 
-<ol>
-  <li>Improved maintainability and extensibility</li>
-  <li>Improved heap memory usage</li>
-  <li>No performance overhead on hot code paths</li>
-</ol>
+<p>Apache Arrow GLib supports <a href="https://wiki.gnome.org/action/show/Projects/GObjectIntrospection">GObject Introspection</a>. It means that you can create language bindings at runtime or compile time automatically.</p>
 
-<h2 id="background">Background</h2>
-
-<h3 id="improved-maintainability-and-extensibility">Improved maintainability and extensibility</h3>
-
-<p>We use templates in several places for compile time Java code generation for
-different vector classes, readers, writers etc. Templates are helpful as the
-developers don’t have to write a lot of duplicate code.</p>
-
-<p>However, we realized that over a period of time some specific Java
-templates became extremely complex with giant if-else blocks, poor code indentation
-and documentation. All this impacted the ability to easily extend these templates
-for adding new functionality or improving the existing infrastructure.</p>
-
-<p>So we evaluated the usage of templates for compile time code generation and
-decided not to use complex templates in some places by writing small amount of
-duplicate code which is elegant, well documented and extensible.</p>
-
-<h3 id="improved-heap-usage">Improved heap usage</h3>
-
-<p>We did extensive memory analysis downstream in <a href="https://www.dremio.com/">Dremio</a> where Arrow is used
-heavily for in-memory query execution on columnar data. The general conclusion
-was that Arrow’s Java vector classes have non-negligible heap overhead and
-volume of objects was too high. There were places in code where we were
-creating objects unnecessarily and using structures that could be substituted
-with better alternatives.</p>
-
-<h3 id="no-performance-overhead-on-hot-code-paths">No performance overhead on hot code paths</h3>
-
-<p>Java vectors used delegation and abstraction heavily throughout the object
-hierarchy. The performance critical get/set methods of vectors went through a
-chain of function calls back and forth between different objects before doing
-meaningful work. We also evaluated the usage of branches in vector APIs and
-reimplemented some of them by avoiding branches completely.</p>
-
-<p>We took inspiration from how the Java memory code in <code class="highlighter-rouge">ArrowBuf</code> works. For all
-the performance critical methods, <code class="highlighter-rouge">ArrowBuf</code> bypasses all the netty object
-hierarchy, grabs the target virtual address and directly interacts with the
-memory.</p>
-
-<p>There were cases where branches could be avoided all together.</p>
-
-<p>In case of nullable vectors, we were doing multiple checks to confirm if
-the value at a given position in the vector is null or not.</p>
-
-<h2 id="our-implementation-approach">Our implementation approach</h2>
+<h2 id="api-reference-manuals">API reference manuals</h2>
 
 <ul>
-  <li>For scalars, the inheritance tree was simplified by writing different
-abstract base classes for fixed and variable width scalars.</li>
-  <li>The base classes contained all the common functionality across different
-types.</li>
-  <li>The individual subclasses implemented type specific APIs for fixed and
-variable width scalar vectors.</li>
-  <li>For the performance critical methods, all the work is done either in
-the vector class or corresponding ArrowBuf. There is no delegation to any
-internal object.</li>
-  <li>The mutator and accessor based access to vector APIs is removed. These
-objects led to unnecessary heap overhead and complicated the use of APIs.</li>
-  <li>Both scalar and complex vectors directly interact with underlying buffers
-that manage the offsets, data and validity. Earlier we were creating different
-inner vectors for each vector and delegating all the functionality to inner
-vectors. This introduced a lot of bugs in memory management, excessive heap
-overhead and performance penalty due to chain of delegations.</li>
-  <li>We reduced the number of vector classes by removing non-nullable vectors.
-In the new implementation, all vectors in Java are nullable in nature.</li>
+  <li><a href="arrow-glib/">Apache Arrow GLib</a></li>
+  <li><a href="parquet-glib/">Apache Parquet GLib</a></li>
+  <li><a href="gandiva-glib/">Gandiva GLib</a></li>
+  <li><a href="plasma-glib/">Plasma GLib</a></li>
 </ul>
 
 
-      </main>
-    </div>
+    </main>
 
     <hr/>
 <footer class="footer">

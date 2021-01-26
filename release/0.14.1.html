@@ -15,33 +15,33 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Apache Arrow 0.14.1 (22 July 2019) This is a bugfix release to address a Python wheel packaging issues and Parquet forward compatibility problems. Download Source Artifacts Binary Artifacts For CentOS For Debian For Python For Ubuntu Git tag Contributors This release includes 52 commits from 16 distinct contributors. $ git shortlog -sn apache-arrow-0.14.0..apache-arrow-0.14.1 15 Sutou Kouhei 10 Krisztián Szűcs 5 Antoine Pitrou 5 Wes McKinney 2 David Li 2 Eric Erhardt 2 Joris Van den Bossche 2 Micah Kornfield 2 Yosuke Shiro 1 Hatem Helal 1 Marco Neumann 1 Marius Seritan 1 Neal Richardson 1 Philipp Moritz 1 TP Boudreau 1 Uwe L. Korn Patch Committers The following Apache committers merged contributed patches to the repository. $ git shortlog -csn apache-arrow-0.14.0..apache-arrow-0.14.1 43 Wes McKinney 9 Krisztián Szűcs Changelog New Features and Improvements ARROW-5351 - [Rust] Add support for take kernel functions ARROW-5380 - [C++] Fix and enable UBSan for unaligned accesses. ARROW-5564 - [C++] Add uriparser to conda-forge ARROW-5609 - [C++] Set CMP0068 CMake policy to avoid macOS warnings ARROW-5784 - [Release][GLib] Replace c_glib/ after running c_glib/autogen.sh in dev/release/02-source.sh ARROW-5785 - [Rust] Rust datafusion implementation should not depend on rustyline ARROW-5787 - [Release][Rust] Use local modules to verify RC ARROW-5793 - [Release] Avoid duplicate known host SSH error in dev/release/03-binary.sh ARROW-5794 - [Release] Skip uploading already uploaded binaries ARROW-5795 - [Release] Add missing waits on uploading binaries ARROW-5796 - [Release][APT] Update expected package list ARROW-5797 - [Release][APT] Update supported distributions ARROW-5820 - [Release] Remove undefined variable check from verify script ARROW-5827 - [C++] Require c-ares CMake config ARROW-5828 - [C++] Add Protocol Buffers version check ARROW-5866 - [C++] Remove duplicate library in cpp/Brewfile ARROW-5877 - [FlightRPC] Fix auth incompatibilities between Python/Java ARROW-5904 - [Java] [Plasma] Fix compilation of Plasma Java client ARROW-5908 - [C#] ArrowStreamWriter doesn’t align buffers to 8 bytes ARROW-5934 - [Python] Bundle arrow’s LICENSE with the wheels ARROW-5937 - [Release] Stop parallel binary upload ARROW-5938 - [Release] Create branch for adding release note automatically ARROW-5939 - [Release] Add support for generating vote email template separately ARROW-5940 - [Release] Add support for re-uploading sign/checksum for binary artifacts ARROW-5941 - [Release] Avoid re-uploading already uploaded binary artifacts ARROW-5958 - [Python] Link zlib statically in the wheels Bug Fixes ARROW-5775 - [C++] StructArray : cached boxed fields not thread-safe ARROW-5790 - [Python] Passing zero-dim numpy array to pa.array causes segfault ARROW-5791 - [Python] pyarrow.csv.read_csv hangs + eats all RAM ARROW-5816 - [Release] Parallel curl does not work reliably in verify-release-candidate-sh ARROW-5836 - [Java][OSX] Flight tests are failing: address already in use ARROW-5838 - [C++][Flight][OSX] Building 3rdparty grpc cannot find OpenSSL ARROW-5849 - [C++] Compiler warnings on mingw-w64 ARROW-5851 - [C++] Compilation of reference benchmarks fails ARROW-5856 - [Python] linking 3rd party cython modules against pyarrow fails since 0.14.0 ARROW-5863 - [Python] Segmentation Fault via pytest-runner ARROW-5868 - [Python] manylinux2010 wheels have shared library dependency on liblz4 ARROW-5873 - [Python] Segmentation fault when comparing schema with None ARROW-5874 - [Python] pyarrow 0.14.0 macOS wheels depend on shared libs under /usr/local/opt ARROW-5878 - [Python][C++] Parquet reader not forward compatible for timestamps without timezone ARROW-5886 - [Python][Packaging] Manylinux1/2010 compliance issue with libz ARROW-5887 - [C#] ArrowStreamWriter writes FieldNodes in wrong order ARROW-5889 - [Python][C++] Parquet backwards compat for timestamps without timezone broken ARROW-5899 - [Python][Packaging] Bundle uriparser.dll in windows wheels ARROW-5921 - [C++][Fuzzing] Missing nullptr checks in IPC" />
 <meta property="og:description" content="Apache Arrow 0.14.1 (22 July 2019) This is a bugfix release to address a Python wheel packaging issues and Parquet forward compatibility problems. Download Source Artifacts Binary Artifacts For CentOS For Debian For Python For Ubuntu Git tag Contributors This release includes 52 commits from 16 distinct contributors. $ git shortlog -sn apache-arrow-0.14.0..apache-arrow-0.14.1 15 Sutou Kouhei 10 Krisztián Szűcs 5 Antoine Pitrou 5 Wes McKinney 2 David Li 2 Eric Erhardt 2 Joris Van den Bossche 2 Micah Kornfield 2 Yosuke Shiro 1 Hatem Helal 1 Marco Neumann 1 Marius Seritan 1 Neal Richardson 1 Philipp Moritz 1 TP Boudreau 1 Uwe L. Korn Patch Committers The following Apache committers merged contributed patches to the repository. $ git shortlog -csn apache-arrow-0.14.0..apache-arrow-0.14.1 43 Wes McKinney 9 Krisztián Szűcs Changelog New Features and Improvements ARROW-5351 - [Rust] Add support for take kernel functions ARROW-5380 - [C++] Fix and enable UBSan for unaligned accesses. ARROW-5564 - [C++] Add uriparser to conda-forge ARROW-5609 - [C++] Set CMP0068 CMake policy to avoid macOS warnings ARROW-5784 - [Release][GLib] Replace c_glib/ after running c_glib/autogen.sh in dev/release/02-source.sh ARROW-5785 - [Rust] Rust datafusion implementation should not depend on rustyline ARROW-5787 - [Release][Rust] Use local modules to verify RC ARROW-5793 - [Release] Avoid duplicate known host SSH error in dev/release/03-binary.sh ARROW-5794 - [Release] Skip uploading already uploaded binaries ARROW-5795 - [Release] Add missing waits on uploading binaries ARROW-5796 - [Release][APT] Update expected package list ARROW-5797 - [Release][APT] Update supported distributions ARROW-5820 - [Release] Remove undefined variable check from verify script ARROW-5827 - [C++] Require c-ares CMake config ARROW-5828 - [C++] Add Protocol Buffers version check ARROW-5866 - [C++] Remove duplicate library in cpp/Brewfile ARROW-5877 - [FlightRPC] Fix auth incompatibilities between Python/Java ARROW-5904 - [Java] [Plasma] Fix compilation of Plasma Java client ARROW-5908 - [C#] ArrowStreamWriter doesn’t align buffers to 8 bytes ARROW-5934 - [Python] Bundle arrow’s LICENSE with the wheels ARROW-5937 - [Release] Stop parallel binary upload ARROW-5938 - [Release] Create branch for adding release note automatically ARROW-5939 - [Release] Add support for generating vote email template separately ARROW-5940 - [Release] Add support for re-uploading sign/checksum for binary artifacts ARROW-5941 - [Release] Avoid re-uploading already uploaded binary artifacts ARROW-5958 - [Python] Link zlib statically in the wheels Bug Fixes ARROW-5775 - [C++] StructArray : cached boxed fields not thread-safe ARROW-5790 - [Python] Passing zero-dim numpy array to pa.array causes segfault ARROW-5791 - [Python] pyarrow.csv.read_csv hangs + eats all RAM ARROW-5816 - [Release] Parallel curl does not work reliably in verify-release-candidate-sh ARROW-5836 - [Java][OSX] Flight tests are failing: address already in use ARROW-5838 - [C++][Flight][OSX] Building 3rdparty grpc cannot find OpenSSL ARROW-5849 - [C++] Compiler warnings on mingw-w64 ARROW-5851 - [C++] Compilation of reference benchmarks fails ARROW-5856 - [Python] linking 3rd party cython modules against pyarrow fails since 0.14.0 ARROW-5863 - [Python] Segmentation Fault via pytest-runner ARROW-5868 - [Python] manylinux2010 wheels have shared library dependency on liblz4 ARROW-5873 - [Python] Segmentation fault when comparing schema with None ARROW-5874 - [Python] pyarrow 0.14.0 macOS wheels depend on shared libs under /usr/local/opt ARROW-5878 - [Python][C++] Parquet reader not forward compatible for timestamps without timezone ARROW-5886 - [Python][Packaging] Manylinux1/2010 compliance issue with libz ARROW-5887 - [C#] ArrowStreamWriter writes FieldNodes in wrong order ARROW-5889 - [Python][C++] Parquet backwards compat for timestamps without timezone broken ARROW-5899 - [Python][Packaging] Bundle uriparser.dll in windows wheels ARROW-5921 - [C++][Fuzzing] Missing nullptr checks in IPC" />
-<link rel="canonical" href="https://arrow.apache.org/release/0.14.1.html" />
-<meta property="og:url" content="https://arrow.apache.org/release/0.14.1.html" />
+<link rel="canonical" href="https://nealrichardson.github.io/arrow-site/arrow-site/release/0.14.1.html" />
+<meta property="og:url" content="https://nealrichardson.github.io/arrow-site/arrow-site/release/0.14.1.html" />
 <meta property="og:site_name" content="Apache Arrow" />
-<meta property="og:image" content="https://arrow.apache.org/img/arrow.png" />
+<meta property="og:image" content="https://nealrichardson.github.io/arrow-site/arrow-site/img/arrow.png" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://arrow.apache.org/img/arrow.png" />
+<meta property="twitter:image" content="https://nealrichardson.github.io/arrow-site/arrow-site/img/arrow.png" />
 <meta property="twitter:title" content="Apache Arrow 0.14.1 Release" />
 <meta name="twitter:site" content="@ApacheArrow" />
 <script type="application/ld+json">
-{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://arrow.apache.org/img/logo.png"}},"description":"Apache Arrow 0.14.1 (22 July 2019) This is a bugfix release to address a Python wheel packaging issues and Parquet forward compatibility problems. Download Source Artifacts Binary Artifacts For CentOS For Debian For Python For Ubuntu Git tag Contributors This release includes 52 commits from 16 distinct contributors. $ git shortlog -sn apache-arrow-0.14.0..apache-arrow-0.14.1 15 Sutou Kouhei 10 Krisztián Szűcs 5 Antoine Pitrou 5 Wes McKinney 2 David Li 2 Eric Erhardt 2 Joris Van den Bossche 2 Micah Kornfield 2 Yosuke Shiro 1 Hatem Helal 1 Marco Neumann 1 Marius Seritan 1 Neal Richardson 1 Philipp Moritz 1 TP Boudreau 1 Uwe L. Korn Patch Committers The following Apache committers merged contributed patches to the repository. $ git shortlog -csn apache-arrow-0.14.0..apache-arrow-0.14.1 43 Wes McKinney 9 Krisztián Szűcs Changelog New Features and Improvements ARROW-5351 - [Rust] Add support for take kernel functions ARROW-5380 - [C++] Fix and enable UBSan for unaligned accesses. ARROW-5564 - [C++] Add uriparser to conda-forge ARROW-5609 - [C++] Set CMP0068 CMake policy to avoid macOS warnings ARROW-5784 - [Release][GLib] Replace c_glib/ after running c_glib/autogen.sh in dev/release/02-source.sh ARROW-5785 - [Rust] Rust datafusion implementation should not depend on rustyline ARROW-5787 - [Release][Rust] Use local modules to verify RC ARROW-5793 - [Release] Avoid duplicate known host SSH error in dev/release/03-binary.sh ARROW-5794 - [Release] Skip uploading already uploaded binaries ARROW-5795 - [Release] Add missing waits on uploading binaries ARROW-5796 - [Release][APT] Update expected package list ARROW-5797 - [Release][APT] Update supported distributions ARROW-5820 - [Release] Remove undefined variable check from verify script ARROW-5827 - [C++] Require c-ares CMake config ARROW-5828 - [C++] Add Protocol Buffers version check ARROW-5866 - [C++] Remove duplicate library in cpp/Brewfile ARROW-5877 - [FlightRPC] Fix auth incompatibilities between Python/Java ARROW-5904 - [Java] [Plasma] Fix compilation of Plasma Java client ARROW-5908 - [C#] ArrowStreamWriter doesn’t align buffers to 8 bytes ARROW-5934 - [Python] Bundle arrow’s LICENSE with the wheels ARROW-5937 - [Release] Stop parallel binary upload ARROW-5938 - [Release] Create branch for adding release note automatically ARROW-5939 - [Release] Add support for generating vote email template separately ARROW-5940 - [Release] Add support for re-uploading sign/checksum for binary artifacts ARROW-5941 - [Release] Avoid re-uploading already uploaded binary artifacts ARROW-5958 - [Python] Link zlib statically in the wheels Bug Fixes ARROW-5775 - [C++] StructArray : cached boxed fields not thread-safe ARROW-5790 - [Python] Passing zero-dim numpy array to pa.array causes segfault ARROW-5791 - [Python] pyarrow.csv.read_csv hangs + eats all RAM ARROW-5816 - [Release] Parallel curl does not work reliably in verify-release-candidate-sh ARROW-5836 - [Java][OSX] Flight tests are failing: address already in use ARROW-5838 - [C++][Flight][OSX] Building 3rdparty grpc cannot find OpenSSL ARROW-5849 - [C++] Compiler warnings on mingw-w64 ARROW-5851 - [C++] Compilation of reference benchmarks fails ARROW-5856 - [Python] linking 3rd party cython modules against pyarrow fails since 0.14.0 ARROW-5863 - [Python] Segmentation Fault via pytest-runner ARROW-5868 - [Python] manylinux2010 wheels have shared library dependency on liblz4 ARROW-5873 - [Python] Segmentation fault when comparing schema with None ARROW-5874 - [Python] pyarrow 0.14.0 macOS wheels depend on shared libs under /usr/local/opt ARROW-5878 - [Python][C++] Parquet reader not forward compatible for timestamps without timezone ARROW-5886 - [Python][Packaging] Manylinux1/2010 compliance issue with libz ARROW-5887 - [C#] ArrowStreamWriter writes FieldNodes in wrong order ARROW-5889 - [Python][C++] Parquet backwards compat for timestamps without timezone broken ARROW-5899 - [Python][Packaging] Bundle uriparser.dll in windows wheels ARROW-5921 - [C++][Fuzzing] Missing nullptr checks in IPC","url":"https://arrow.apache.org/release/0.14.1.html","image":"https://arrow.apache.org/img/arrow.png","@type":"WebPage","headline":"Apache Arrow 0.14.1 Release","@context":"https://schema.org"}</script>
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://nealrichardson.github.io/arrow-site/arrow-site/img/logo.png"}},"description":"Apache Arrow 0.14.1 (22 July 2019) This is a bugfix release to address a Python wheel packaging issues and Parquet forward compatibility problems. Download Source Artifacts Binary Artifacts For CentOS For Debian For Python For Ubuntu Git tag Contributors This release includes 52 commits from 16 distinct contributors. $ git shortlog -sn apache-arrow-0.14.0..apache-arrow-0.14.1 15 Sutou Kouhei 10 Krisztián Szűcs 5 Antoine Pitrou 5 Wes McKinney 2 David Li 2 Eric Erhardt 2 Joris Van den Bossche 2 Micah Kornfield 2 Yosuke Shiro 1 Hatem Helal 1 Marco Neumann 1 Marius Seritan 1 Neal Richardson 1 Philipp Moritz 1 TP Boudreau 1 Uwe L. Korn Patch Committers The following Apache committers merged contributed patches to the repository. $ git shortlog -csn apache-arrow-0.14.0..apache-arrow-0.14.1 43 Wes McKinney 9 Krisztián Szűcs Changelog New Features and Improvements ARROW-5351 - [Rust] Add support for take kernel functions ARROW-5380 - [C++] Fix and enable UBSan for unaligned accesses. ARROW-5564 - [C++] Add uriparser to conda-forge ARROW-5609 - [C++] Set CMP0068 CMake policy to avoid macOS warnings ARROW-5784 - [Release][GLib] Replace c_glib/ after running c_glib/autogen.sh in dev/release/02-source.sh ARROW-5785 - [Rust] Rust datafusion implementation should not depend on rustyline ARROW-5787 - [Release][Rust] Use local modules to verify RC ARROW-5793 - [Release] Avoid duplicate known host SSH error in dev/release/03-binary.sh ARROW-5794 - [Release] Skip uploading already uploaded binaries ARROW-5795 - [Release] Add missing waits on uploading binaries ARROW-5796 - [Release][APT] Update expected package list ARROW-5797 - [Release][APT] Update supported distributions ARROW-5820 - [Release] Remove undefined variable check from verify script ARROW-5827 - [C++] Require c-ares CMake config ARROW-5828 - [C++] Add Protocol Buffers version check ARROW-5866 - [C++] Remove duplicate library in cpp/Brewfile ARROW-5877 - [FlightRPC] Fix auth incompatibilities between Python/Java ARROW-5904 - [Java] [Plasma] Fix compilation of Plasma Java client ARROW-5908 - [C#] ArrowStreamWriter doesn’t align buffers to 8 bytes ARROW-5934 - [Python] Bundle arrow’s LICENSE with the wheels ARROW-5937 - [Release] Stop parallel binary upload ARROW-5938 - [Release] Create branch for adding release note automatically ARROW-5939 - [Release] Add support for generating vote email template separately ARROW-5940 - [Release] Add support for re-uploading sign/checksum for binary artifacts ARROW-5941 - [Release] Avoid re-uploading already uploaded binary artifacts ARROW-5958 - [Python] Link zlib statically in the wheels Bug Fixes ARROW-5775 - [C++] StructArray : cached boxed fields not thread-safe ARROW-5790 - [Python] Passing zero-dim numpy array to pa.array causes segfault ARROW-5791 - [Python] pyarrow.csv.read_csv hangs + eats all RAM ARROW-5816 - [Release] Parallel curl does not work reliably in verify-release-candidate-sh ARROW-5836 - [Java][OSX] Flight tests are failing: address already in use ARROW-5838 - [C++][Flight][OSX] Building 3rdparty grpc cannot find OpenSSL ARROW-5849 - [C++] Compiler warnings on mingw-w64 ARROW-5851 - [C++] Compilation of reference benchmarks fails ARROW-5856 - [Python] linking 3rd party cython modules against pyarrow fails since 0.14.0 ARROW-5863 - [Python] Segmentation Fault via pytest-runner ARROW-5868 - [Python] manylinux2010 wheels have shared library dependency on liblz4 ARROW-5873 - [Python] Segmentation fault when comparing schema with None ARROW-5874 - [Python] pyarrow 0.14.0 macOS wheels depend on shared libs under /usr/local/opt ARROW-5878 - [Python][C++] Parquet reader not forward compatible for timestamps without timezone ARROW-5886 - [Python][Packaging] Manylinux1/2010 compliance issue with libz ARROW-5887 - [C#] ArrowStreamWriter writes FieldNodes in wrong order ARROW-5889 - [Python][C++] Parquet backwards compat for timestamps without timezone broken ARROW-5899 - [Python][Packaging] Bundle uriparser.dll in windows wheels ARROW-5921 - [C++][Fuzzing] Missing nullptr checks in IPC","url":"https://nealrichardson.github.io/arrow-site/arrow-site/release/0.14.1.html","image":"https://nealrichardson.github.io/arrow-site/arrow-site/img/arrow.png","@type":"WebPage","headline":"Apache Arrow 0.14.1 Release","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
     <!-- favicons -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" id="light1">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" id="light2">
-    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/apple-touch-icon.png" id="light3">
-    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/img/apple-touch-icon-120x120.png" id="light4">
-    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/img/apple-touch-icon-76x76.png" id="light5">
-    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/img/apple-touch-icon-60x60.png" id="light6">
+    <link rel="icon" type="image/png" sizes="16x16" href="/arrow-site/img/favicon-16x16.png" id="light1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/arrow-site/img/favicon-32x32.png" id="light2">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/arrow-site/img/apple-touch-icon.png" id="light3">
+    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/arrow-site/img/apple-touch-icon-120x120.png" id="light4">
+    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/arrow-site/img/apple-touch-icon-76x76.png" id="light5">
+    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/arrow-site/img/apple-touch-icon-60x60.png" id="light6">
     <!-- dark mode favicons -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16-dark.png" id="dark1">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32-dark.png" id="dark2">
-    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/apple-touch-icon-dark.png" id="dark3">
-    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/img/apple-touch-icon-120x120-dark.png" id="dark4">
-    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/img/apple-touch-icon-76x76-dark.png" id="dark5">
-    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/img/apple-touch-icon-60x60-dark.png" id="dark6">
+    <link rel="icon" type="image/png" sizes="16x16" href="/arrow-site/img/favicon-16x16-dark.png" id="dark1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/arrow-site/img/favicon-32x32-dark.png" id="dark2">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/arrow-site/img/apple-touch-icon-dark.png" id="dark3">
+    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/arrow-site/img/apple-touch-icon-120x120-dark.png" id="dark4">
+    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/arrow-site/img/apple-touch-icon-76x76-dark.png" id="dark5">
+    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/arrow-site/img/apple-touch-icon-60x60-dark.png" id="dark6">
 
     <script>
       // Switch to the dark-mode favicons if prefers-color-scheme: dark
@@ -95,8 +95,8 @@
 
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
 
-    <link href="/css/main.css" rel="stylesheet">
-    <link href="/css/syntax.css" rel="stylesheet">
+    <link href="/arrow-site/css/main.css" rel="stylesheet">
+    <link href="/arrow-site/css/syntax.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     
@@ -118,7 +118,7 @@
   <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   
-  <a class="navbar-brand no-padding" href="/"><img src="/img/arrow-inverse-300px.png" height="40px"/></a>
+  <a class="navbar-brand no-padding" href="/arrow-site/"><img src="/arrow-site/img/arrow-inverse-300px.png" height="40px"/></a>
   
    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#arrow-navbar" aria-controls="arrow-navbar" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -127,9 +127,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse justify-content-end" id="arrow-navbar">
       <ul class="nav navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="/overview/" role="button" aria-haspopup="true" aria-expanded="false">Overview</a></li>
-        <li class="nav-item"><a class="nav-link" href="/faq/" role="button" aria-haspopup="true" aria-expanded="false">FAQ</a></li>
-        <li class="nav-item"><a class="nav-link" href="/blog" role="button" aria-haspopup="true" aria-expanded="false">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/overview/" role="button" aria-haspopup="true" aria-expanded="false">Overview</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/faq/" role="button" aria-haspopup="true" aria-expanded="false">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/blog" role="button" aria-haspopup="true" aria-expanded="false">Blog</a></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#"
              id="navbarDropdownGetArrow" role="button" data-toggle="dropdown"
@@ -137,8 +137,8 @@
              Get Arrow
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownGetArrow">
-            <a class="dropdown-item" href="/install/">Install</a>
-            <a class="dropdown-item" href="/release/">Releases</a>
+            <a class="dropdown-item" href="/arrow-site/install/">Install</a>
+            <a class="dropdown-item" href="/arrow-site/release/">Releases</a>
             <a class="dropdown-item" href="https://github.com/apache/arrow">Source Code</a>
           </div>
         </li>
@@ -149,19 +149,19 @@
              Documentation
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownDocumentation">
-            <a class="dropdown-item" href="/docs">Project Docs</a>
-            <a class="dropdown-item" href="/docs/format/Columnar.html">Format</a>
+            <a class="dropdown-item" href="/arrow-site/docs">Project Docs</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/Columnar.html">Format</a>
             <hr/>
-            <a class="dropdown-item" href="/docs/c_glib">C GLib</a>
-            <a class="dropdown-item" href="/docs/cpp">C++</a>
+            <a class="dropdown-item" href="/arrow-site/docs/c_glib">C GLib</a>
+            <a class="dropdown-item" href="/arrow-site/docs/cpp">C++</a>
             <a class="dropdown-item" href="https://github.com/apache/arrow/blob/master/csharp/README.md">C#</a>
             <a class="dropdown-item" href="https://godoc.org/github.com/apache/arrow/go/arrow">Go</a>
-            <a class="dropdown-item" href="/docs/java">Java</a>
-            <a class="dropdown-item" href="/docs/js">JavaScript</a>
+            <a class="dropdown-item" href="/arrow-site/docs/java">Java</a>
+            <a class="dropdown-item" href="/arrow-site/docs/js">JavaScript</a>
             <a class="dropdown-item" href="https://arrow.juliadata.org/stable/">Julia</a>
             <a class="dropdown-item" href="https://github.com/apache/arrow/blob/master/matlab/README.md">MATLAB</a>
-            <a class="dropdown-item" href="/docs/python">Python</a>
-            <a class="dropdown-item" href="/docs/r">R</a>
+            <a class="dropdown-item" href="/arrow-site/docs/python">Python</a>
+            <a class="dropdown-item" href="/arrow-site/docs/r">R</a>
             <a class="dropdown-item" href="https://github.com/apache/arrow/blob/master/ruby/README.md">Ruby</a>
             <a class="dropdown-item" href="https://docs.rs/crate/arrow/">Rust</a>
           </div>
@@ -173,13 +173,13 @@
              Community
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownCommunity">
-            <a class="dropdown-item" href="/community/">Communication</a>
-            <a class="dropdown-item" href="/docs/developers/contributing.html">Contributing</a>
+            <a class="dropdown-item" href="/arrow-site/community/">Communication</a>
+            <a class="dropdown-item" href="/arrow-site/docs/developers/contributing.html">Contributing</a>
             <a class="dropdown-item" href="https://issues.apache.org/jira/browse/ARROW">Issue Tracker</a>
-            <a class="dropdown-item" href="/committers/">Governance</a>
-            <a class="dropdown-item" href="/use_cases/">Use Cases</a>
-            <a class="dropdown-item" href="/powered_by/">Powered By</a>
-            <a class="dropdown-item" href="/security/">Security</a>
+            <a class="dropdown-item" href="/arrow-site/committers/">Governance</a>
+            <a class="dropdown-item" href="/arrow-site/use_cases/">Use Cases</a>
+            <a class="dropdown-item" href="/arrow-site/powered_by/">Powered By</a>
+            <a class="dropdown-item" href="/arrow-site/security/">Security</a>
             <a class="dropdown-item" href="https://www.apache.org/foundation/policies/conduct.html">Code of Conduct</a>
           </div>
         </li>
@@ -333,7 +333,7 @@ forward compatibility problems.</p>
       <img src="https://www.apache.org/events/current-event-234x60.png"/>
     </a>
   </div>
-  <script src="/assets/main-18cd3029557f73c1ee82e41113127b04f6fcd84c56d9db0cb9c40ebe26ef6e33.js" type="text/javascript" integrity="sha256-GM0wKVV/c8HuguQRExJ7BPb82ExW2dsMucQOvibvbjM=" crossorigin="anonymous"></script>
+  <script src="/arrow-site/assets/main-18cd3029557f73c1ee82e41113127b04f6fcd84c56d9db0cb9c40ebe26ef6e33.js" type="text/javascript" integrity="sha256-GM0wKVV/c8HuguQRExJ7BPb82ExW2dsMucQOvibvbjM=" crossorigin="anonymous"></script>
 </footer>
 
   </div>

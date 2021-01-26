@@ -16,36 +16,36 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="The Apache Arrow team is pleased to announce the 0.4.0 release of the project. While only 17 days since the release, it includes 77 resolved JIRAs with some important new features and bug fixes. See the Install Page to learn how to get the libraries for your platform. Expanded JavaScript Implementation The TypeScript Arrow implementation has undergone some work since 0.3.0 and can now read a substantial portion of the Arrow streaming binary format. As this implementation develops, we will eventually want to include JS in the integration test suite along with Java and C++ to ensure wire cross-compatibility. Python Support for Apache Parquet on Windows With the 1.1.0 C++ release of Apache Parquet, we have enabled the pyarrow.parquet extension on Windows for Python 3.5 and 3.6. This should appear in conda-forge packages and PyPI in the near future. Developers can follow the source build instructions. Generalizing Arrow Streams In the 0.2.0 release, we defined the first version of the Arrow streaming binary format for low-cost messaging with columnar data. These streams presume that the message components are written as a continuous byte stream over a socket or file. We would like to be able to support other other transport protocols, like gRPC, for the message components of Arrow streams. To that end, in C++ we defined an abstract stream reader interface, for which the current contiguous streaming format is one implementation: class RecordBatchReader { public: virtual std::shared_ptr&lt;Schema&gt; schema() const = 0; virtual Status GetNextRecordBatch(std::shared_ptr&lt;RecordBatch&gt;* batch) = 0; }; It would also be good to define abstract stream reader and writer interfaces in the Java implementation. In an upcoming blog post, we will explain in more depth how Arrow streams work, but you can learn more about them by reading the IPC specification. C++ and Cython API for Python Extensions As other Python libraries with C or C++ extensions use Apache Arrow, they will need to be able to return Python objects wrapping the underlying C++ objects. In this release, we have implemented a prototype C++ API which enables Python wrapper objects to be constructed from C++ extension code: #include &quot;arrow/python/pyarrow.h&quot; if (!arrow::py::import_pyarrow()) { // Error } std::shared_ptr&lt;arrow::RecordBatch&gt; cpp_batch = GetData(...); PyObject* py_batch = arrow::py::wrap_batch(cpp_batch); This API is intended to be usable from Cython code as well: cimport pyarrow pyarrow.import_pyarrow() Python Wheel Installers on macOS With this release, pip install pyarrow works on macOS (OS X) as well as Linux. We are working on providing binary wheel installers for Windows as well." />
 <meta property="og:description" content="The Apache Arrow team is pleased to announce the 0.4.0 release of the project. While only 17 days since the release, it includes 77 resolved JIRAs with some important new features and bug fixes. See the Install Page to learn how to get the libraries for your platform. Expanded JavaScript Implementation The TypeScript Arrow implementation has undergone some work since 0.3.0 and can now read a substantial portion of the Arrow streaming binary format. As this implementation develops, we will eventually want to include JS in the integration test suite along with Java and C++ to ensure wire cross-compatibility. Python Support for Apache Parquet on Windows With the 1.1.0 C++ release of Apache Parquet, we have enabled the pyarrow.parquet extension on Windows for Python 3.5 and 3.6. This should appear in conda-forge packages and PyPI in the near future. Developers can follow the source build instructions. Generalizing Arrow Streams In the 0.2.0 release, we defined the first version of the Arrow streaming binary format for low-cost messaging with columnar data. These streams presume that the message components are written as a continuous byte stream over a socket or file. We would like to be able to support other other transport protocols, like gRPC, for the message components of Arrow streams. To that end, in C++ we defined an abstract stream reader interface, for which the current contiguous streaming format is one implementation: class RecordBatchReader { public: virtual std::shared_ptr&lt;Schema&gt; schema() const = 0; virtual Status GetNextRecordBatch(std::shared_ptr&lt;RecordBatch&gt;* batch) = 0; }; It would also be good to define abstract stream reader and writer interfaces in the Java implementation. In an upcoming blog post, we will explain in more depth how Arrow streams work, but you can learn more about them by reading the IPC specification. C++ and Cython API for Python Extensions As other Python libraries with C or C++ extensions use Apache Arrow, they will need to be able to return Python objects wrapping the underlying C++ objects. In this release, we have implemented a prototype C++ API which enables Python wrapper objects to be constructed from C++ extension code: #include &quot;arrow/python/pyarrow.h&quot; if (!arrow::py::import_pyarrow()) { // Error } std::shared_ptr&lt;arrow::RecordBatch&gt; cpp_batch = GetData(...); PyObject* py_batch = arrow::py::wrap_batch(cpp_batch); This API is intended to be usable from Cython code as well: cimport pyarrow pyarrow.import_pyarrow() Python Wheel Installers on macOS With this release, pip install pyarrow works on macOS (OS X) as well as Linux. We are working on providing binary wheel installers for Windows as well." />
-<link rel="canonical" href="https://arrow.apache.org/blog/2017/05/23/0.4.0-release/" />
-<meta property="og:url" content="https://arrow.apache.org/blog/2017/05/23/0.4.0-release/" />
+<link rel="canonical" href="https://nealrichardson.github.io/arrow-site/arrow-site/blog/2017/05/23/0.4.0-release/" />
+<meta property="og:url" content="https://nealrichardson.github.io/arrow-site/arrow-site/blog/2017/05/23/0.4.0-release/" />
 <meta property="og:site_name" content="Apache Arrow" />
-<meta property="og:image" content="https://arrow.apache.org/img/arrow.png" />
+<meta property="og:image" content="https://nealrichardson.github.io/arrow-site/arrow-site/img/arrow.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2017-05-23T00:00:00-04:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://arrow.apache.org/img/arrow.png" />
+<meta property="twitter:image" content="https://nealrichardson.github.io/arrow-site/arrow-site/img/arrow.png" />
 <meta property="twitter:title" content="Apache Arrow 0.4.0 Release" />
 <meta name="twitter:site" content="@ApacheArrow" />
 <meta name="twitter:creator" content="@wesm" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"wesm"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://arrow.apache.org/img/logo.png"},"name":"wesm"},"datePublished":"2017-05-23T00:00:00-04:00","description":"The Apache Arrow team is pleased to announce the 0.4.0 release of the project. While only 17 days since the release, it includes 77 resolved JIRAs with some important new features and bug fixes. See the Install Page to learn how to get the libraries for your platform. Expanded JavaScript Implementation The TypeScript Arrow implementation has undergone some work since 0.3.0 and can now read a substantial portion of the Arrow streaming binary format. As this implementation develops, we will eventually want to include JS in the integration test suite along with Java and C++ to ensure wire cross-compatibility. Python Support for Apache Parquet on Windows With the 1.1.0 C++ release of Apache Parquet, we have enabled the pyarrow.parquet extension on Windows for Python 3.5 and 3.6. This should appear in conda-forge packages and PyPI in the near future. Developers can follow the source build instructions. Generalizing Arrow Streams In the 0.2.0 release, we defined the first version of the Arrow streaming binary format for low-cost messaging with columnar data. These streams presume that the message components are written as a continuous byte stream over a socket or file. We would like to be able to support other other transport protocols, like gRPC, for the message components of Arrow streams. To that end, in C++ we defined an abstract stream reader interface, for which the current contiguous streaming format is one implementation: class RecordBatchReader { public: virtual std::shared_ptr&lt;Schema&gt; schema() const = 0; virtual Status GetNextRecordBatch(std::shared_ptr&lt;RecordBatch&gt;* batch) = 0; }; It would also be good to define abstract stream reader and writer interfaces in the Java implementation. In an upcoming blog post, we will explain in more depth how Arrow streams work, but you can learn more about them by reading the IPC specification. C++ and Cython API for Python Extensions As other Python libraries with C or C++ extensions use Apache Arrow, they will need to be able to return Python objects wrapping the underlying C++ objects. In this release, we have implemented a prototype C++ API which enables Python wrapper objects to be constructed from C++ extension code: #include &quot;arrow/python/pyarrow.h&quot; if (!arrow::py::import_pyarrow()) { // Error } std::shared_ptr&lt;arrow::RecordBatch&gt; cpp_batch = GetData(...); PyObject* py_batch = arrow::py::wrap_batch(cpp_batch); This API is intended to be usable from Cython code as well: cimport pyarrow pyarrow.import_pyarrow() Python Wheel Installers on macOS With this release, pip install pyarrow works on macOS (OS X) as well as Linux. We are working on providing binary wheel installers for Windows as well.","mainEntityOfPage":{"@type":"WebPage","@id":"https://arrow.apache.org/blog/2017/05/23/0.4.0-release/"},"url":"https://arrow.apache.org/blog/2017/05/23/0.4.0-release/","image":"https://arrow.apache.org/img/arrow.png","@type":"BlogPosting","headline":"Apache Arrow 0.4.0 Release","dateModified":"2017-05-23T00:00:00-04:00","@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"wesm"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://nealrichardson.github.io/arrow-site/arrow-site/img/logo.png"},"name":"wesm"},"datePublished":"2017-05-23T00:00:00-04:00","description":"The Apache Arrow team is pleased to announce the 0.4.0 release of the project. While only 17 days since the release, it includes 77 resolved JIRAs with some important new features and bug fixes. See the Install Page to learn how to get the libraries for your platform. Expanded JavaScript Implementation The TypeScript Arrow implementation has undergone some work since 0.3.0 and can now read a substantial portion of the Arrow streaming binary format. As this implementation develops, we will eventually want to include JS in the integration test suite along with Java and C++ to ensure wire cross-compatibility. Python Support for Apache Parquet on Windows With the 1.1.0 C++ release of Apache Parquet, we have enabled the pyarrow.parquet extension on Windows for Python 3.5 and 3.6. This should appear in conda-forge packages and PyPI in the near future. Developers can follow the source build instructions. Generalizing Arrow Streams In the 0.2.0 release, we defined the first version of the Arrow streaming binary format for low-cost messaging with columnar data. These streams presume that the message components are written as a continuous byte stream over a socket or file. We would like to be able to support other other transport protocols, like gRPC, for the message components of Arrow streams. To that end, in C++ we defined an abstract stream reader interface, for which the current contiguous streaming format is one implementation: class RecordBatchReader { public: virtual std::shared_ptr&lt;Schema&gt; schema() const = 0; virtual Status GetNextRecordBatch(std::shared_ptr&lt;RecordBatch&gt;* batch) = 0; }; It would also be good to define abstract stream reader and writer interfaces in the Java implementation. In an upcoming blog post, we will explain in more depth how Arrow streams work, but you can learn more about them by reading the IPC specification. C++ and Cython API for Python Extensions As other Python libraries with C or C++ extensions use Apache Arrow, they will need to be able to return Python objects wrapping the underlying C++ objects. In this release, we have implemented a prototype C++ API which enables Python wrapper objects to be constructed from C++ extension code: #include &quot;arrow/python/pyarrow.h&quot; if (!arrow::py::import_pyarrow()) { // Error } std::shared_ptr&lt;arrow::RecordBatch&gt; cpp_batch = GetData(...); PyObject* py_batch = arrow::py::wrap_batch(cpp_batch); This API is intended to be usable from Cython code as well: cimport pyarrow pyarrow.import_pyarrow() Python Wheel Installers on macOS With this release, pip install pyarrow works on macOS (OS X) as well as Linux. We are working on providing binary wheel installers for Windows as well.","mainEntityOfPage":{"@type":"WebPage","@id":"https://nealrichardson.github.io/arrow-site/arrow-site/blog/2017/05/23/0.4.0-release/"},"url":"https://nealrichardson.github.io/arrow-site/arrow-site/blog/2017/05/23/0.4.0-release/","image":"https://nealrichardson.github.io/arrow-site/arrow-site/img/arrow.png","@type":"BlogPosting","headline":"Apache Arrow 0.4.0 Release","dateModified":"2017-05-23T00:00:00-04:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
     <!-- favicons -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" id="light1">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" id="light2">
-    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/apple-touch-icon.png" id="light3">
-    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/img/apple-touch-icon-120x120.png" id="light4">
-    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/img/apple-touch-icon-76x76.png" id="light5">
-    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/img/apple-touch-icon-60x60.png" id="light6">
+    <link rel="icon" type="image/png" sizes="16x16" href="/arrow-site/img/favicon-16x16.png" id="light1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/arrow-site/img/favicon-32x32.png" id="light2">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/arrow-site/img/apple-touch-icon.png" id="light3">
+    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/arrow-site/img/apple-touch-icon-120x120.png" id="light4">
+    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/arrow-site/img/apple-touch-icon-76x76.png" id="light5">
+    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/arrow-site/img/apple-touch-icon-60x60.png" id="light6">
     <!-- dark mode favicons -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16-dark.png" id="dark1">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32-dark.png" id="dark2">
-    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/img/apple-touch-icon-dark.png" id="dark3">
-    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/img/apple-touch-icon-120x120-dark.png" id="dark4">
-    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/img/apple-touch-icon-76x76-dark.png" id="dark5">
-    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/img/apple-touch-icon-60x60-dark.png" id="dark6">
+    <link rel="icon" type="image/png" sizes="16x16" href="/arrow-site/img/favicon-16x16-dark.png" id="dark1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/arrow-site/img/favicon-32x32-dark.png" id="dark2">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/arrow-site/img/apple-touch-icon-dark.png" id="dark3">
+    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/arrow-site/img/apple-touch-icon-120x120-dark.png" id="dark4">
+    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="/arrow-site/img/apple-touch-icon-76x76-dark.png" id="dark5">
+    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="/arrow-site/img/apple-touch-icon-60x60-dark.png" id="dark6">
 
     <script>
       // Switch to the dark-mode favicons if prefers-color-scheme: dark
@@ -99,8 +99,8 @@
 
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
 
-    <link href="/css/main.css" rel="stylesheet">
-    <link href="/css/syntax.css" rel="stylesheet">
+    <link href="/arrow-site/css/main.css" rel="stylesheet">
+    <link href="/arrow-site/css/syntax.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     
@@ -122,7 +122,7 @@
   <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   
-  <a class="navbar-brand no-padding" href="/"><img src="/img/arrow-inverse-300px.png" height="40px"/></a>
+  <a class="navbar-brand no-padding" href="/arrow-site/"><img src="/arrow-site/img/arrow-inverse-300px.png" height="40px"/></a>
   
    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#arrow-navbar" aria-controls="arrow-navbar" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -131,9 +131,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse justify-content-end" id="arrow-navbar">
       <ul class="nav navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="/overview/" role="button" aria-haspopup="true" aria-expanded="false">Overview</a></li>
-        <li class="nav-item"><a class="nav-link" href="/faq/" role="button" aria-haspopup="true" aria-expanded="false">FAQ</a></li>
-        <li class="nav-item"><a class="nav-link" href="/blog" role="button" aria-haspopup="true" aria-expanded="false">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/overview/" role="button" aria-haspopup="true" aria-expanded="false">Overview</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/faq/" role="button" aria-haspopup="true" aria-expanded="false">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="/arrow-site/blog" role="button" aria-haspopup="true" aria-expanded="false">Blog</a></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#"
              id="navbarDropdownGetArrow" role="button" data-toggle="dropdown"
@@ -141,8 +141,8 @@
              Get Arrow
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownGetArrow">
-            <a class="dropdown-item" href="/install/">Install</a>
-            <a class="dropdown-item" href="/release/">Releases</a>
+            <a class="dropdown-item" href="/arrow-site/install/">Install</a>
+            <a class="dropdown-item" href="/arrow-site/release/">Releases</a>
             <a class="dropdown-item" href="https://github.com/apache/arrow">Source Code</a>
           </div>
         </li>
@@ -153,19 +153,19 @@
              Documentation
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownDocumentation">
-            <a class="dropdown-item" href="/docs">Project Docs</a>
-            <a class="dropdown-item" href="/docs/format/Columnar.html">Format</a>
+            <a class="dropdown-item" href="/arrow-site/docs">Project Docs</a>
+            <a class="dropdown-item" href="/arrow-site/docs/format/Columnar.html">Format</a>
             <hr/>
-            <a class="dropdown-item" href="/docs/c_glib">C GLib</a>
-            <a class="dropdown-item" href="/docs/cpp">C++</a>
+            <a class="dropdown-item" href="/arrow-site/docs/c_glib">C GLib</a>
+            <a class="dropdown-item" href="/arrow-site/docs/cpp">C++</a>
             <a class="dropdown-item" href="https://github.com/apache/arrow/blob/master/csharp/README.md">C#</a>
             <a class="dropdown-item" href="https://godoc.org/github.com/apache/arrow/go/arrow">Go</a>
-            <a class="dropdown-item" href="/docs/java">Java</a>
-            <a class="dropdown-item" href="/docs/js">JavaScript</a>
+            <a class="dropdown-item" href="/arrow-site/docs/java">Java</a>
+            <a class="dropdown-item" href="/arrow-site/docs/js">JavaScript</a>
             <a class="dropdown-item" href="https://arrow.juliadata.org/stable/">Julia</a>
             <a class="dropdown-item" href="https://github.com/apache/arrow/blob/master/matlab/README.md">MATLAB</a>
-            <a class="dropdown-item" href="/docs/python">Python</a>
-            <a class="dropdown-item" href="/docs/r">R</a>
+            <a class="dropdown-item" href="/arrow-site/docs/python">Python</a>
+            <a class="dropdown-item" href="/arrow-site/docs/r">R</a>
             <a class="dropdown-item" href="https://github.com/apache/arrow/blob/master/ruby/README.md">Ruby</a>
             <a class="dropdown-item" href="https://docs.rs/crate/arrow/">Rust</a>
           </div>
@@ -177,13 +177,13 @@
              Community
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownCommunity">
-            <a class="dropdown-item" href="/community/">Communication</a>
-            <a class="dropdown-item" href="/docs/developers/contributing.html">Contributing</a>
+            <a class="dropdown-item" href="/arrow-site/community/">Communication</a>
+            <a class="dropdown-item" href="/arrow-site/docs/developers/contributing.html">Contributing</a>
             <a class="dropdown-item" href="https://issues.apache.org/jira/browse/ARROW">Issue Tracker</a>
-            <a class="dropdown-item" href="/committers/">Governance</a>
-            <a class="dropdown-item" href="/use_cases/">Use Cases</a>
-            <a class="dropdown-item" href="/powered_by/">Powered By</a>
-            <a class="dropdown-item" href="/security/">Security</a>
+            <a class="dropdown-item" href="/arrow-site/committers/">Governance</a>
+            <a class="dropdown-item" href="/arrow-site/use_cases/">Use Cases</a>
+            <a class="dropdown-item" href="/arrow-site/powered_by/">Powered By</a>
+            <a class="dropdown-item" href="/arrow-site/security/">Security</a>
             <a class="dropdown-item" href="https://www.apache.org/foundation/policies/conduct.html">Code of Conduct</a>
           </div>
         </li>
@@ -324,7 +324,7 @@ Linux. We are working on providing binary wheel installers for Windows as well.<
       <img src="https://www.apache.org/events/current-event-234x60.png"/>
     </a>
   </div>
-  <script src="/assets/main-18cd3029557f73c1ee82e41113127b04f6fcd84c56d9db0cb9c40ebe26ef6e33.js" type="text/javascript" integrity="sha256-GM0wKVV/c8HuguQRExJ7BPb82ExW2dsMucQOvibvbjM=" crossorigin="anonymous"></script>
+  <script src="/arrow-site/assets/main-18cd3029557f73c1ee82e41113127b04f6fcd84c56d9db0cb9c40ebe26ef6e33.js" type="text/javascript" integrity="sha256-GM0wKVV/c8HuguQRExJ7BPb82ExW2dsMucQOvibvbjM=" crossorigin="anonymous"></script>
 </footer>
 
   </div>
